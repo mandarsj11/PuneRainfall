@@ -1,0 +1,67 @@
+<html>
+<head>
+<link
+    href="http://cdn.pydata.org/bokeh/release/bokeh-2.0.2.min.css"
+    rel="stylesheet" type="text/css">
+<link
+    href="http://cdn.pydata.org/bokeh/release/bokeh-widgets-2.0.2.min.css"
+    rel="stylesheet" type="text/css">
+
+<script src="http://cdn.pydata.org/bokeh/release/bokeh-2.0.2.min.js"></script>
+<script src="http://cdn.pydata.org/bokeh/release/bokeh-widgets-2.0.2.min.js"></script>
+
+<title>Rainfall</title>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="{{ url_for('static', filename='css/bootstrap.min.css') }}" rel="stylesheet">
+<link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
+
+</head>
+<body>
+<H6>Rainfall measurement across Pune City - Citizens Voluntary Initiative</H6>
+<H8>Purpose: Started out of curiosity to know 'how much it rains in My area', the initiave is now extended to record rainfall patterns in adjucent areas as well as across Pune city.</H8><br>
+<H8>Procedure : Rain gauges used are either home made or are brought from market. Rainfall is measured at 8:30am everyday for 24 Hr span and centralised record of all data points is maintained.</H8><br>
+<H8>Measurement of 2.5mm or less at 3 or less locations is considered as 'No Rainfall'</H8><br>
+<H8>Call for Volunteers - Interested Citizens especially in the areas around Pune East (Hadarpsar, Phursungi, Wanawadi) are welcome to paticipate in this initiative. Contact Abhijit Gandhi (98228-75550) for any feedback</H8><br>
+<!-- Multiplr input variable using form http://hplgit.github.io/web4sciapps/doc/pub/._part0008_web4sa_plain.html
+wtform documentation - https://wtforms.readthedocs.io/en/2.3.x/fields/#field-definitions
+-->
+
+{{ script|safe }} 
+{{ div|safe }}
+<H8>Visualization using Python geopandas & Bokeh library, GitHub link-github.com/mandarsj11</H8>
+<!--without the safe tag, all the Javascript and HTML code will be automatically escaped and displayed within the browser, 
+but not actually executed.-->
+
+<!--
+<div style="position: absolute; left:600px; top:30px" class="bd-example" align="middle">
+<h1>Weekly rainfall</h1>
+<img src={{url_for('static', filename='Pune_Rainfall.png')}} align="middle" style="width:800px;height:600px;" />
+</div>
+
+
+<h1>Rain Fall in Pune</h1>
+
+{{ folium_html|safe }}
+
+{% block header %}
+    <h1>Chropleth using folium - State Chropleth</h1>
+{% endblock %}
+
+{% extends 'pune_Chropleth.html' %}
+-->
+</body>
+</html>
+
+<!--
+Flask tutorial1 - https://pythonprogramming.net/flask-includes-tutorial/
+Flask tutorial2 - https://hackersandslackers.com/your-first-flask-application
+
+How to include image with html
+try 1 - success - https://medium.com/@kanchanardj/how-to-add-images-to-html-in-a-flask-app-4dbcc92e3aeb
+
+<!--How to include html within another html:
+try 1 - file not found, html file can not be called within div - not working - https://www.w3schools.com/howto/howto_html_include.asp
+try 2 - https://stackoverflow.com/questions/37379374/insert-the-folium-maps-into-the-jinja-template
+try 3 - https://python-visualization.github.io/folium/flask.html
+try 4 - success - https://python-visualization.github.io/folium/flask.html
